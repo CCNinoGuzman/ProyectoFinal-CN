@@ -1,0 +1,5 @@
+LoadingLP = () =>{
+
+}
+
+export default LoadingLP
