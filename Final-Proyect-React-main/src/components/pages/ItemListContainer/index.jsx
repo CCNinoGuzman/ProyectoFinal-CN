@@ -1,4 +1,4 @@
-import FetchData from "../FetchData/fetchData";
+import FetchData from "../../FetchData/fetchData";
 
 let ItemListContainer = ({text})=>{
     return(
