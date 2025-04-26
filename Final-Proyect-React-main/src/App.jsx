@@ -5,6 +5,7 @@ import ItemListContainer from './components/pages/ItemListContainer'
 import { Route, Routes } from 'react-router'
 import Home from './components/pages/ItemListContainer/home'
 import Contact from './components/pages/ItemListContainer/contact'
+import ItemDetailContainer from './components/pages/ItemListContainer/ItemList/ItemDetailContainer'
 
 function App() {
 
@@ -13,11 +14,14 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path='/' element={<Home></Home>} />
-        <Route path='/products' element={<ItemListContainer  text="¡Bienvenidos! a la mejor Tienda Online de Tecnología"></ItemListContainer>} />
+        <Route path='/products' element={<ItemListContainer></ItemListContainer>} />
         <Route path='/contact' element={<Contact></Contact>} />
-      </Routes>
+        <Route path='/item/:id' element={<ItemDetailContainer/>} />
+        <Route path="*" element={<h1>Page not Found -  Error 404</h1>} />
+      </Routes> 
     </div>   
   )
 }
+
 
 export default App
