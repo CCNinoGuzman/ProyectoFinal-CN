@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { useGlobalStates } from "../../../context/cointext";
 
 const ItemList = ()=>{
-    const [dataList, setdataList] = useState([]);
-
-    useEffect(()=>{
-        fetch('https://fakestoreapi.com/products')
-        .then(response => response.json())
-        .then((data)=>{setdataList(data)});
-    },[])
+    const {dataList, loading} = useGlobalStates()
     
     return(
         <div className="container row">

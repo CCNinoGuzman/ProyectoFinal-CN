@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router'
 import Home from './components/pages/ItemListContainer/home'
 import Contact from './components/pages/ItemListContainer/contact'
 import ItemDetailContainer from './components/pages/ItemListContainer/ItemList/ItemDetailContainer'
+import Cart from './components/pages/ItemListContainer/cart'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>} />
         <Route path='/products' element={<ItemListContainer></ItemListContainer>} />
+        <Route path='/cart' element={<Cart></Cart>}/>
         <Route path='/contact' element={<Contact></Contact>} />
         <Route path='/item/:id' element={<ItemDetailContainer/>} />
         <Route path="*" element={<h1>Page not Found -  Error 404</h1>} />

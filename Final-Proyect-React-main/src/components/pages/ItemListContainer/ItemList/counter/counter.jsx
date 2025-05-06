@@ -1,20 +1,19 @@
 import { useState } from "react"
 
-const CounterItem = ({stock})=>{
-    const[numcounter, setNumcounter]=useState(0)
+const CounterItem = ({stock, counter, setCounter})=>{
     
     const agree = ()=>{
 
-        setNumcounter(numcounter+1)
+      setCounter(counter+1)
     }
     const desagree = ()=>{
-        setNumcounter(numcounter-1)
+      setCounter(counter-1)
     }
     return(
       <div className="counterbox d-flex p-2">
-        <button onClick={desagree} disabled={numcounter===0}>-</button>
-        <h4 className="px-4">{numcounter}</h4>
-        <button onClick={agree} disabled={numcounter>=stock}>+</button>
+        <button onClick={desagree} disabled={counter===0}>-</button>
+        <h4 className="px-4">{counter}</h4>
+        <button onClick={agree} disabled={counter>=stock}>+</button>
       </div>  
     )
 
