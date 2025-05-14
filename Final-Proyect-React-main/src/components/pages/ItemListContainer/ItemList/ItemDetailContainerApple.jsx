@@ -3,9 +3,9 @@ import { useParams } from "react-router";
 import CounterItem  from "./counter/counter";    
 import { useGlobalStates } from "../../../context/context";
 import Spiner from "../Spiner";
-import {getProductId} from "../../../services/firebaseService"
+import {getProductIdApple} from "../../../services/firebaseService"
 
-const ItemDetailContainer = ()=>{
+const ItemDetailContainerApple = ()=>{
    const [data, setdata] = useState({})
    const {id} = useParams()
    const[numcounter, setNumcounter]=useState(0)
@@ -14,7 +14,7 @@ const ItemDetailContainer = ()=>{
    
    useEffect(()=>{
       setLoading(true)
-      getProductId(id).then(res=>{
+      getProductIdApple(id).then(res=>{
          setdata(res)
          console.log("id", data)
          setLoading(false)
@@ -54,4 +54,4 @@ const ItemDetailContainer = ()=>{
  
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainerApple

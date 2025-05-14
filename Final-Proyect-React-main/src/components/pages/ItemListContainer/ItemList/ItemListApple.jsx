@@ -1,20 +1,20 @@
 import { Link } from "react-router";
 import { useGlobalStates } from "../../../context/context";
 
-const ItemList = ()=>{
-    const {dataList, loading} = useGlobalStates()
+const ItemListApple = ()=>{
+    const {dataListApple, loading} = useGlobalStates()
     
     return(
         <div className="container row">
-          <h1>Productos Android</h1>
-            {dataList.map((value)=>{
+          <h1>Productos Apple</h1>
+            {dataListApple.map((value)=>{
                 return(
                     <div key={value.id} className="col-md-4 card p-5">
                         <h3>{value.titulo}</h3>
                         <img src={value.image} alt="" />
                         <span>{value.description}</span>
                         <h4>Precio: ${value.price}</h4>
-                        <button><Link to={"/item/" + value.id}>Ver más</Link></button>   
+                        <button><Link to={"/itemA/" + value.id}>Ver más</Link></button>   
                     </div>
                 )
             })} 
@@ -22,4 +22,4 @@ const ItemList = ()=>{
     )
 }
 
-export default ItemList
+export default ItemListApple

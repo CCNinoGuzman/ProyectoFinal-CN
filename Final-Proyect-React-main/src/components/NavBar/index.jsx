@@ -20,20 +20,19 @@ let NavBar = ()=>{
              <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/products">Products</Link>
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Productos
+              </a>
+              <ul className="dropdown-menu">
+                <li><Link className="nav-link" to="/products">Android</Link></li>
+                <li><Link className="nav-link" to="/products-Apple">Apple</Link></li>
+              </ul>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contact</Link>
             </li>
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="text" 
-          onChange={(event)=>{
-            setname(event.target.value)
-          }} 
-          placeholder="Search" aria-label="Search"/>
-        <span>Name={name}</span>
-      </form>
+      
       <CartWidget/>
     </div>
   </div>
@@ -43,3 +42,5 @@ let NavBar = ()=>{
 }
 
 export default NavBar
+
+    
