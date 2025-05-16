@@ -3,9 +3,9 @@ import { useParams } from "react-router";
 import CounterItem  from "./counter/counter";    
 import { useGlobalStates } from "../../../context/context";
 import Spiner from "../Spiner";
-import {getProductId} from "../../../services/firebaseService"
+import {getProductIdApple} from "../../../services/firebaseService"
 
-const ItemDetailContainer = ()=>{
+const ItemDetailContainerApple = ()=>{
    const [data, setdata] = useState({})
    const {id} = useParams()
    const[numcounter, setNumcounter]=useState(0)
@@ -14,7 +14,7 @@ const ItemDetailContainer = ()=>{
    
    useEffect(()=>{
       setLoading(true)
-      getProductId(id).then(res=>{
+      getProductIdApple(id).then(res=>{
          setdata(res)
          console.log("id", data)
          setLoading(false)
@@ -38,10 +38,10 @@ const ItemDetailContainer = ()=>{
                <h4>Stock: {data.stock}</h4>
 
                <CounterItem stock={data.stock} counter={numcounter} setCounter={setNumcounter}/>
-               <button className="" onClick={addCar} disabled={numcounter==0}>Agregar al carrito 🛒</button>
+               <button className="btn btn-primary" onClick={addCar} disabled={numcounter==0}>Agregar al carrito 🛒</button>
             </div>
             <div className="col-md-7">
-               <img src={data.image} className="btn btn-primary" alt="" style={{height:"250px"}} />
+               <img src={data.image} className="" alt="" style={{height:"250px"}} />
             </div>
                </>
             )}
@@ -54,4 +54,4 @@ const ItemDetailContainer = ()=>{
  
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainerApple

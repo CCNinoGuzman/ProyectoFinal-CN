@@ -7,8 +7,8 @@ import { useState } from 'react';
 let NavBar = ()=>{
   const [name, setname] = useState("");
   return(   
-      <header className="p-2">
-        <nav className="navbar navbar-expand-lg bg-body-tertiary rounded rounded-4">
+      <header className="">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#"><img src={logo} alt="" /></a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,20 +20,22 @@ let NavBar = ()=>{
              <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/products">Products</Link>
+             <Link className="nav-link" to="/products">Productos</Link>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categoria
+              </a>
+              <ul className="dropdown-menu">
+                <li><Link className="nav-link" to="category/android">Android</Link></li>
+                <li><Link className="nav-link" to="category/apple">Apple</Link></li>
+              </ul>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contact</Link>
             </li>
       </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="text" 
-          onChange={(event)=>{
-            setname(event.target.value)
-          }} 
-          placeholder="Search" aria-label="Search"/>
-        <span>Name={name}</span>
-      </form>
+      
       <CartWidget/>
     </div>
   </div>
@@ -43,3 +45,5 @@ let NavBar = ()=>{
 }
 
 export default NavBar
+
+    
