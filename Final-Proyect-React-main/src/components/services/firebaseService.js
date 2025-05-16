@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc, addDoc, query, where } from "firebase/firestore";
 import { db } from "../../components/config/firebase_config"
 
 export const getProducts = async ()=>{
@@ -24,3 +24,24 @@ export const getProductIdApple = async (id)=>{
     return {id: productA.id, ...productA.data()}
 }
 
+//servcicxio por categorY
+export const getByCategory = async (category) => {
+    const prodCollection  = collection(db, 'ProductosAndroid')
+    const q = query(prodCollection, where('category', '==', category))
+    const productos = await getDocs(q)
+    return productos.docs.map(doc=>({id: doc.id, ...doc.data()}))
+}
+
+//servicio para crear orden
+
+export const createOrder = async newOrder=>{
+    try{
+        const orderCollection = collection(db, 'ordenes')
+        const orderDoc = await addDoc(orderCollection, newOrder)
+        console.log(orderDoc)
+        return orderDoc
+    }catch(err){
+        console.log(err)
+        throw new Error(err)
+    }
+}

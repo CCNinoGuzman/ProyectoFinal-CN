@@ -5,31 +5,29 @@ export const GlobalStates = createContext()
 
 const ContextProvider =  ({children}) => {
     const [cart, setCart] = useState([])
-    const [dataList, setdataList] = useState([]);
     const [dataListApple, setdataListApple] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    
-    useEffect(()=>{
-        setLoading(true)
-        getProducts().then(res => {
-            console.log("productos ", res)
-            setdataList(res)
-            setLoading(false)
-        })
-    },[])
+    //llamado a firebase
 
-    useEffect(()=>{
-        setLoading(true)
-        getProductsApple().then(res => {
-            console.log("productosApple ", res)
-            setdataListApple(res)
-            setLoading(false)
-        })
-    },[])
+    const calcularItems = cart.reduce((total, prod) => {
+        return total + prod.quantity
+    }, 0)
+
+    const calcularTotal = cart.reduce((total, prod) => {
+        return total + (prod.quantity * prod.price)
+    }, 0)
 
     return (
-        <GlobalStates.Provider value={{cart, setCart, dataList, dataListApple, loading, setLoading}}>{children}</GlobalStates.Provider>
+        <GlobalStates.Provider value={{
+            calcularTotal, 
+            calcularItems, 
+            cart, 
+            setCart, 
+            dataListApple, 
+            loading, 
+            setLoading, }
+        }>{children}</GlobalStates.Provider>
     )
 } 
 

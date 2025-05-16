@@ -13,20 +13,21 @@ import Checkout from './components/pages/Checkout'
 function App() {
 
   return (
+    <>
+     <NavBar></NavBar>
     <div className="container mt-4">
-      <NavBar></NavBar>
       <Routes>
         <Route path='/' element={<Home></Home>} />
         <Route path='/products' element={<ItemListContainer></ItemListContainer>} />
-        <Route path='/products-Apple' element={<ItemListContainerAndroid></ItemListContainerAndroid>} />
+        <Route path='category/:category' element={<ItemListContainer></ItemListContainer>} />
         <Route path='/cart' element={<Cart></Cart>}/>
         <Route path='/contact' element={<Contact></Contact>} />
         <Route path='/item/:id' element={<ItemDetailContainer/>} />
-        <Route path='/itemA/:id' element={<ItemDetailContainerApple/>} />
         <Route path='/checkout' element={<Checkout></Checkout>}/>
         <Route path="*" element={<h1>Page not Found -  Error 404</h1>} />
       </Routes> 
-    </div>   
+    </div>  
+    </> 
   )
 }
 

@@ -38,10 +38,10 @@ const ItemDetailContainer = ()=>{
                <h4>Stock: {data.stock}</h4>
 
                <CounterItem stock={data.stock} counter={numcounter} setCounter={setNumcounter}/>
-               <button onClick={addCar} disabled={numcounter==0}>Agregar al carrito 🛒</button>
+               <button className="" onClick={addCar} disabled={numcounter==0}>Agregar al carrito 🛒</button>
             </div>
             <div className="col-md-7">
-               <img src={data.image} className="" alt="" style={{height:"250px"}} />
+               <img src={data.image} className="btn btn-primary" alt="" style={{height:"250px"}} />
             </div>
                </>
             )}
